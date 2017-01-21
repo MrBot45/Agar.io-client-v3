@@ -7,7 +7,7 @@ So yeah i hope u will enjoy this :D
 
 <h2> How to use </h2>
 
-<br> you need to install Tempermonkey 
+<br> You need to install Tempermonkey 
 
 <h3> New agar.io skin / name mod !</h3>
 <br> This mod make you advalible to change your name automaticly in the game !
