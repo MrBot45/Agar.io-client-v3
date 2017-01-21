@@ -24,7 +24,7 @@ So yeah i hope u will enjoy this :D
 <br> Open agar.io and wait <b> 8 sec </b>
 <br> Done !
 
-### Help
+## Help
 
 <br> Blank screen ? Just refresh !
 
@@ -43,7 +43,7 @@ To join us you need to :
 - Know buffer / ArrayBuffer
 - Have free time
 
-### How to join us
+## How to join us
 
 <br> If you want to join us you need to send me an email or contact me on skype:
 <br> The firend requess contant need to be :
