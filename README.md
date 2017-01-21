@@ -18,13 +18,13 @@ So yeah i hope u will enjoy this :D
 
 # Mods
 
-### How to use
+## How to use
 
 <br> You need to install <b> Tampermonkey </b>
 <br> Open agar.io and wait <b> 8 sec </b>
 <br> Done !
 
-#### Help
+### Help
 
 <br> Blank screen ? Just refresh !
 
