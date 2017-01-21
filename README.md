@@ -5,10 +5,16 @@ So yeah i hope u will enjoy this :D
 
 ## Protocol documentary & Information
 
-<b> ** Please read the <i> PROTOCOL.MD </i> for the documentation **
-** Interresing to join us ? **
-** Read the Developper section in <i> About </i> at the bottom ! **
-** Some mods are disponible read below. **  </b>
+<p> 
+<b>
+
+<br> ** Please read the <i> PROTOCOL.MD </i> for the documentation ** 
+<br> ** Interresing to join us ? **
+<br> ** Read the Developper section in <i> About </i> at the bottom ! **
+<br> ** Some mods are disponible read below. **  
+
+</b>
+</p>
 
 # Mods
 
@@ -39,9 +45,9 @@ To join us you need to :
 
 ### How to join us
 
-If you want to join us you need to send me an email or contact me on skype:
-The firend requess contant need to be :
+<br> If you want to join us you need to send me an email or contact me on skype:
+<br> The firend requess contant need to be :
 
-Hey, I want to join your team + what you can do for help us
+<br> Hey, I want to join your team + what you can do for help us
 
 <b> <i> *** By joining us you can make money, this is not a job yet so you are not paid for your work at the start. But went we will get working bots whit no bugs, I will contact all team members and paid them for their work. *** </i> </b>
