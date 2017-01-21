@@ -10,9 +10,9 @@ Agar.io uses standard JavaScript DataView data types.
 | uint8     | Unsigned 1 byte integer (byte)
 | uint16    | Unsigned 2 byte integer (short)
 | uint32    | Unsigned 4 byte integer (int)
-| float32   | Signed 4 byte floating point value (float)
-| float64   | Signed 8 byte floating point value (double)
-| string    | Null-terminated UTF-16 (before protocol 6) or UTF-8 (after protocol 6)
+| float32   | Signed 4 byte floating point value
+| float64   | Signed 8 byte floating point value
+| string    | UTF-8
 | boolean   | uint32 where 0 = false, 1 = true
 
 Each packet starts with a uint8 containing the packet ID.
