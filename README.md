@@ -11,6 +11,10 @@ So yeah i hope u will enjoy this :D
 <br> Open agar.io and wait 8 sec
 <br> Done !
 
+<h4> </h4>
+
+<br> Blank screen ? Just refresh !
+
 <h3> New agar.io skin / name mod !</h3>
 <br> This mod make you advalible to change your name automaticly in the game !
 <h5> *** INCUDING A SKIN HACK !!! *** </h5>
