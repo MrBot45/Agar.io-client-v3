@@ -37,7 +37,7 @@ Sent to the client by the server to update information about one or more nodes. 
 #### Node Data
 Each visible node is described by the following data. This data repeats n times at the end of the Update Nodes packet, where n is the number specified by position 1 in the packet (number of nodes). Nodes that are stationary (like food) are only sent **once** to the client. In additon, the name field of each node is sent **once**.
 
-##### Decompression type : 0xf0
+##### Decompression type : 0xf0 and 0xff
 
 | Offset | Data Type | Description
 |--------|-----------|-------------------
@@ -54,7 +54,7 @@ Each visible node is described by the following data. This data repeats n times 
 | ?      | string    | Node name (flags determined)
 | ?      | uint8     | End of string Bytes: 00
 
-##### Decompression type : 0xff and others
+##### Decompression type : Others
 
 If you are a developper and you can help me whit this please contact : 
 
