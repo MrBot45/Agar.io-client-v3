@@ -1,4 +1,4 @@
-# Agar.io Protocol
+# Agar.io Protocol v11
 
 This file contains information about the client-server connection protocol 11.
 
@@ -37,7 +37,7 @@ Sent to the client by the server to update information about one or more nodes. 
 #### Node Data
 Each visible node is described by the following data. This data repeats n times at the end of the Update Nodes packet, where n is the number specified by position 1 in the packet (number of nodes). Nodes that are stationary (like food) are only sent **once** to the client. In additon, the name field of each node is sent **once**.
 
-##### Decompression type : 0xf0 and 0xff
+##### Decompression type : 0xf0 & 0xff 0xf1 & 0xf2 & 0xf3
 
 | Offset | Data Type | Description
 |--------|-----------|-------------------
@@ -49,7 +49,8 @@ Each visible node is described by the following data. This data repeats n times 
 | 14     | uint8     | Red component (flags determined)
 | 15     | uint8     | Green component (flags determined)
 | 16     | uint8     | Blue component (flags determined)
-| 17     | string    | Skin name (flags determined)
+| ?      | uint8     | If the flags is 130. This is an other flags see below. (flags determined)
+| ?      | string    | Skin name (flags determined)
 | ?      | uint8     | End of string Bytes: 00
 | ?      | string    | Node name (flags determined)
 | ?      | uint8     | End of string Bytes: 00
@@ -66,29 +67,34 @@ My skype : slithervipbots@gmail.com or by email thx !
 | 4      | int32     | X position
 | 8      | int32     | Y position
 | 12     | uint16    | Radius of node
-| ?      | uint8     | Flags - see below
-| ?      | uint8     | Red component (flags determined)
-| ?      | uint8     | Green component (flags determined)
-| ?      | uint8     | Blue component (flags determined)
+| 14     | uint8     | Flags - see below
+| 15..?  | uint8     | Red component (flags determined)
+| 16..?  | uint8     | Green component (flags determined)
+| 17..?  | uint8     | Blue component (flags determined)
+| ?      | uint8     | If the flags is 130. This is an other flags see below. (flags determined)
 | ?      | string    | Skin name (flags determined) 
 | ?      | uint8     | End of string Bytes: 00
 | ?      | string    | Node name (flags determined)
 | ?      | uint8     | End of string Bytes: 00
 
-
-The flags field is 1 byte in length, and is a bitfield. Here's a table describing the known behaviors of setting specific flags:
-
 #### Flags for Protocol v11
 
 | Bit | Behavior
 |-----|------------------
-| 1   | Is virus
+| 1   | Is virus or ejected food
 | 2   | Color present
 | 4   | Skin present
 | 8   | Name present
-| 16  | Agitated cell
-| 32  | Is ejected cell
+| 10  | Agitated cell or ejected food or virus (If player or ejected food or virus is moving)
+| 130 | A byte form is_ejected_food_or_virus to define is type.
 
+##### Flags of flags 130
+
+| Bit | Behavior
+|-----|------------------
+| 1   | Is virus
+| 255 | Is ejected mass
+| ?   | Is ??? (For other type please send me what you thing via skype or email. You can also post an issue !)
 
 #### Remove record
 
@@ -99,8 +105,6 @@ Node data that is marked for destruction has a simple format:
 | 0      | uint32    | Node ID of killing cell
 | 4      | uint32    | Node ID of killed cell
 | ?      | uint32    | Hex data: 00 00 end of the destruction update
-
-
 
 ### Packet 17: Update Position and Size in spectator mode
 
@@ -177,11 +181,13 @@ Sets the map border.
 | 9        | float64   | Top position
 | 17       | float64   | Right position
 | 25       | float64   | Bottom position
-| 26 ++    | string    | I think it the version currenly @12.1.1
-| ?        | End       | 1 byte Data : 00
+| 33       | Int32     | Server Type: FFA = 0, TEAMS = 1, EXPERIMENTAL = 4, PARTY = 8
+| 37       | string    | Server version: Currenly it is @12.1.1
+| ?        | End       | Zero-terminated string with server version
 
 ### Packet 255: Compressed packet
-Seen as an envelope of compressed packets 16 (Update nodes) and 64 (Set border). The compression uses LZ4 algorithm to compress data.
+Envelope of compressed packets 16 (Update nodes) and 64 (Set border). 
+The compression uses LZ4 algorithm to compress data.
 
 | Position | Data Type | Description
 |----------|-----------|-----------------
@@ -206,17 +212,13 @@ Puts the player in spectator mode.
 
 ### Packet 16: Mouse Move
 Sent when the player's mouse moves.
-X and Y positions' data types:
-- float64 at protocol 4
-- int16 at early protocol 5
-- int32 at late protocol 5 and newer
 
 | Position | Data Type            | Description
 |----------|----------------------|-----------------
 | 0        | uint8                | Packet ID
-| 1        | protocol-dependent   | Absolute mouse X on canvas
-| ?        | protocol-dependent   | Absolute mouse Y on canvas
-| ?        | uint32               | Node ID of the cell to control. Earlier used to move only specified cells.
+| 1        | int32			      | Absolute mouse X on canvas
+| 5        | int32			      | Absolute mouse Y on canvas
+| 9        | uint32               | Node ID of the cell to control. Earlier used to move only specified cells.
 
 ### Packet 17: Split
 Splits the player's cell.
@@ -247,15 +249,6 @@ Ejects mass from the player's cell.
 |----------|-----------|-----------------
 | 0        | uint8     | Packet ID
 
-### Packet 80: Send Token
-Sent at the beginning of a connection, after packet 255.  
-Used to authenticate with a one-use token issued by the load balancer.
-
-| Position | Data Type | Description
-|----------|-----------|-----------------
-| 0        | uint8     | Packet ID
-| 1        | string    | Token. 8 characters, alpha-numeric, and some symbols. (uint8)
-
 ### Packet 254: Reset Connection 1
 Sent at the beginning of a connection, before packet 255.
 The server is obligated to send ClearNodes and SetBorder packets to ensure client doesn't drop the connection.
@@ -263,7 +256,7 @@ The server is obligated to send ClearNodes and SetBorder packets to ensure clien
 | Position | Data Type | Description
 |----------|-----------|-----------------
 | 0        | uint8     | Packet ID
-| 1        | uint32    | Protocol version. Currently 8 as of vanilla 7/2/2016.
+| 1        | uint32    | Protocol version. Currently 11.
 
 ### Packet 255: Reset Connection 2
 Sent at the beginning of a connection, after packet 254.
@@ -271,5 +264,6 @@ Sent at the beginning of a connection, after packet 254.
 | Position | Data Type | Description
 |----------|-----------|-----------------
 | 0        | uint8     | Packet ID
-| 1        | uint32    | Protocol version. Currently 2838145714 as of 7/2/2016. Unsure if changes.
+| 1        | uint32    | Random keys reseted each hour. How to get it you need a sniffer. Find for 255
+<b> After send this reset you will get encrypted packet. </b>
 
