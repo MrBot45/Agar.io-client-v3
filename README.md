@@ -15,6 +15,13 @@ Hi guys, so like I said this is the agar.io protocole V11 !
 </b>
 </p>
 
+## UserScript
+
+<br> You need to install Tampermonkey
+<br> Put agario.user.js in Tampermonkey
+<br> Change your UUID
+<br> Go agar.io and you have done !
+
 # Mods
 
 ## How to use
