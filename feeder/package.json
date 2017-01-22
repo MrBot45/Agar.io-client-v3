@@ -12,7 +12,8 @@
     "socket.io-client": "latest",
     "socks": "latest",
     "ws": "latest",
-	"node-lz4": "latesr"
+	"node-lz4": "latest",
+	"colors": "latest"
   },
   "devDependencies": {},
   "scripts": {
