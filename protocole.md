@@ -1,6 +1,6 @@
 # Agar.io Protocol
 
-This file contains information about the client-server connection protocol 9.
+This file contains information about the client-server connection protocol 11.
 
 ## Data Types
 Agar.io uses standard JavaScript DataView data types.
@@ -21,6 +21,8 @@ Each packet starts with a uint8 containing the packet ID.
 ### Packet 16: Update Nodes (Decompressed part of the packet 255)
 Sent to the client by the server to update information about one or more nodes. Nodes to be destroyed are placed at the beginning of the node data list.
 
+#### Eat record
+
 | Position | Data Type     | Description
 |----------|---------------|-----------------
 | 0        | uint8         | Packet ID
@@ -31,14 +33,6 @@ Sent to the client by the server to update information about one or more nodes. 
 | ?        | uint16        | Always 0; discarded by the client
 | ?        | uint16        | Number of nodes marked for destroying
 | ?...?    | Destruct Data | Node ID of each destroyed node (uint32)
-
-Node data that is marked for destruction has a simple format:
-
-| Offset | Data Type | Description
-|--------|-----------|-------------------
-| 0      | uint32    | Node ID of killing cell
-| 4      | uint32    | Node ID of killed cell
-| ?      | uint32    | Hex data: 00 00 end of the destruction update
 
 #### Node Data
 Each visible node is described by the following data. This data repeats n times at the end of the Update Nodes packet, where n is the number specified by position 1 in the packet (number of nodes). Nodes that are stationary (like food) are only sent **once** to the client. In additon, the name field of each node is sent **once**.
@@ -84,7 +78,7 @@ My skype : slithervipbots@gmail.com or by email thx !
 
 The flags field is 1 byte in length, and is a bitfield. Here's a table describing the known behaviors of setting specific flags:
 
-##### Protocols v9
+##### Flags for Protocol v11
 
 | Bit | Behavior
 |-----|------------------
@@ -94,6 +88,19 @@ The flags field is 1 byte in length, and is a bitfield. Here's a table describin
 | 8   | Name present
 | 16  | Agitated cell
 | 32  | Is ejected cell
+
+
+#### Remove record
+
+Node data that is marked for destruction has a simple format:
+
+| Offset | Data Type | Description
+|--------|-----------|-------------------
+| 0      | uint32    | Node ID of killing cell
+| 4      | uint32    | Node ID of killed cell
+| ?      | uint32    | Hex data: 00 00 end of the destruction update
+
+
 
 ### Packet 17: Update Position and Size in spectator mode
 
@@ -133,13 +140,13 @@ Sended after spawn.
 ### Packet 49: Update Leaderboard (FFA)
 Updates the leaderboard on the client's screen.
 
-#### Protocols after v6
+#### Protocol 11
 | Position | Data Type | Description
 |----------|-----------|-----------------
 | 0        | uint8     | Packet ID
 | 1        | uint32    | The following repeats the number of times specified by this field.
-| ?        | boolean   | Is me flag (0 - no, 1 - yes)
-| ?        | string    | Player's name
+| 5        | uint32    | Highlight
+| ?        | string    | Player's name 
 
 ### Packet 50: Update Leaderboard (Team)
 Updates the leaderboard on the client's screen. Team score is the percentage of the total mass in game that the team has.
@@ -148,10 +155,14 @@ Updates the leaderboard on the client's screen. Team score is the percentage of 
 |----------|-----------|-----------------
 | 0        | uint8     | Packet ID
 | 1        | uint32    | Amount of teams
-| ?        | float32   | Team score
+| 5        | float32   | Team score A
+| 9        | float32   | Team score B 
+| 13       | float32   | Team score C
 
 ### Packet 64: Set Border
 Sets the map border.
+<b> Packet form 255 </b>
+<b> This packet is <i> PROBALY </i> compressed whit an unknown type.</b>
 
 | Position | Data Type | Description
 |----------|-----------|-----------------
@@ -160,8 +171,8 @@ Sets the map border.
 | 9        | float64   | Top position
 | 17       | float64   | Right position
 | 25       | float64   | Bottom position
-| 26 to ?  | string    | I think it the version
-
+| 26 ++    | string    | I think it the version currenly @12.1.1
+| ?        | End       | 1 byte Data : 00
 
 ### Packet 255: Compressed packet
 Seen as an envelope of compressed packets 16 (Update nodes) and 64 (Set border). The compression uses LZ4 algorithm to compress data.
