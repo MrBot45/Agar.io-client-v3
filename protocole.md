@@ -111,7 +111,13 @@ Node data that is marked for destruction has a simple format:
 | 5        | float32   | Y position
 | 9        | float32   | Zoom factor of client
 
-### Packet 20: Clear All Nodes not used
+### Packet 18: Reset all cells
+
+| Position | Data Type | Description
+|----------|-----------|-----------------
+| 0        | uint8     | Packet ID
+
+### Packet 20: Clear All Nodes (not needed)
 
 Clears all nodes off of the player's screen.
 
