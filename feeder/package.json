@@ -1,0 +1,37 @@
+{
+  "name": "lefela4-feeder",
+  "version": "1.0.0",
+  "description": "A Bot for ogar servers which follows your mouse and other cool stuff.",
+  "main": "feeder.js",
+  "dependencies": {
+    "agario-client": "latest",
+    "fs-extra": "latest",
+    "https-proxy-agent": "latest",
+    "mock-browser": "^0.92.12",
+    "socket.io": "latest",
+    "socket.io-client": "latest",
+    "socks": "latest",
+    "ws": "latest",
+	"node-lz4": "latesr"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lefela4/lefela4-feeder.git"
+  },
+  "keywords": [
+    "ogar",
+    "agario",
+    "feeder",
+    "bot"
+  ],
+  "author": "lefela4",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lefela4/lefela4-feeder/issues"
+  },
+  "homepage": "https://github.com/lefela4/lefela4-feeder#readme"
+}
