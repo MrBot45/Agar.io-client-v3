@@ -78,7 +78,7 @@ My skype : slithervipbots@gmail.com or by email thx !
 
 The flags field is 1 byte in length, and is a bitfield. Here's a table describing the known behaviors of setting specific flags:
 
-##### Flags for Protocol v11
+#### Flags for Protocol v11
 
 | Bit | Behavior
 |-----|------------------
