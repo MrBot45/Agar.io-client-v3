@@ -16,9 +16,9 @@ Hi guys, so like I said this is the agar.io protocole V11 !
 </p>
 ## CMD
 
-<br> new cool desing done !
+<br> New cool desing done !
 
-![alt tag](http://xgarz.ga/cmd.png)
+![CMD](http://xgarz.ga/cmd.png)
 
 ## UserScript
 
