@@ -165,7 +165,6 @@ Client.prototype = {
 		buf.writeUInt8(this.c, 2);
 		buf.writeUInt8(this.d, 3);
 		buf.writeUInt8(this.e, 4);
-	this.send(buf);
 		
 	
         client.emitEvent('connected');
