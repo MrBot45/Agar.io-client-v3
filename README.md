@@ -1,7 +1,7 @@
 # Agar.io-client-v3
 Hi guys, so like I said this is the agar.io protocole V11 !
 
-# Protocol v11 (:|)
+# Protocol v11
 ## Protocol documentary & Information
 
 <p> 
