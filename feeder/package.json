@@ -13,7 +13,10 @@
     "socks": "latest",
     "ws": "latest",
 	"node-lz4": "latest",
-	"colors": "latest"
+	"colors": "latest",
+	"figlet": "latest",
+	"readline": "latest",
+	"fs": "latest"
   },
   "devDependencies": {},
   "scripts": {
@@ -24,10 +27,10 @@
     "url": "git+https://github.com/lefela4/Agar.io-client-v3.git"
   },
   "keywords": [
-    "ogar",
+    "lefela4",
     "agario",
-    "feeder",
-    "bot"
+    "lefela4-client",
+    "bots"
   ],
   "author": "lefela4",
   "license": "MIT",
