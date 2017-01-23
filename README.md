@@ -18,7 +18,7 @@ Hi guys, so like I said this is the agar.io protocole V11 !
 
 <br> New cool desing done !
 
-![CMD]("https://raw.github.com/lefela4/Agar.io-client-v3/img/cmd.png")
+![CMD]("https://raw.github.com/lefela4/Agar.io-client-v3/blob/master/img/cmd.png")
 
 ## UserScript
 
