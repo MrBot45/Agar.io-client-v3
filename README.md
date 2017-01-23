@@ -57,3 +57,10 @@ To join us you need to :
 <br> Hey, I want to join your team + what you can do for help us
 
 <b> <i> *** By joining us you can make money, this is not a job yet so you are not paid for your work at the start. But went we will get working bots whit no bugs, I will contact all team members and paid them for their work. *** </i> </b>
+
+
+## Thanks to
+
+<br> Special tnx for ogar server !
+<br> Special tnx for Sonic for a little fix !
+<br> Special tnx for NulearC for the fix of the first bytes
