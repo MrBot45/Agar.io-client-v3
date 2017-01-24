@@ -18,31 +18,6 @@ var names = require('./names');
 var AgarioClient = require('lefela4-client'); //Use this in your scripts
 spawnCount = 0;
 
-function load() {
-    var figlet = require('figlet');
-    figlet('lefela4-Client', function (err, data) {
-        console.log(data);
-        console.log('               Agar.io bots made by lefela4');
-		
-            console.log('');
-			console.log(('[INFO] ').cyan + ('Made by lefela4').white);
-            console.log(('[INFO] ').cyan + ('Feeder is started !').white);
-			console.log(('[INFO] ').cyan + ('Current version : ').white+('1.0.0').green);
-			console.log(('[VERSION] ').cyan + ('Please look each 2 or 3 days for comming update !').white);
-			console.log(('[STATUS] ').green + ('Max tested: 500. (500 = 60 Lefela4 config value)').green);
-            
-			
-			function a () {
-				
-					console.log(('[ERROR] ').red + ('THIS VERSION IS UNSTABLE PLEASE DONT ABUSE.').red);
-					console.log('');
-			}
-			
-			setTimeout(a, 1000);
-			
-			
-    });
-}
 
 
 var a;
@@ -758,9 +733,6 @@ function startFeederBotOnProxies() {
     }
 }
 
-load();
-
-require("./cmd.js");
-
+console.log(("[IMPORTANT] You need to join a type 8 server. Type 8 = Party").yellow);
 console.log(("Lefela4-feeder started ! Check if you have the userscript installed.").green);
 console.log(("Press CTRL + C to stop everything.").yellow);
