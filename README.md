@@ -3,7 +3,7 @@ Hi guys, so like I said this is the agar.io protocole V11 !
 
 <br> <b> You need to install this extention of node module :  http://www.mediafire.com/file/gc2v93g1d4f3jg3/node_modules.zip </b>
 ## Change log
-<br> Please Update
+<br> <b> Important Update please update.
 
 
 # Protocol v11
