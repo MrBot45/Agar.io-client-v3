@@ -159,13 +159,13 @@ Client.prototype = {
 		
 		console.log(this.a, this.b, this.c, this.d, this.e);
 		
-    buf = new Buffer(5);
+   /* buf = new Buffer(5);
         buf.writeUInt8(this.a, 0);
 		buf.writeUInt8(this.b, 1);
 		buf.writeUInt8(this.c, 2);
 		buf.writeUInt8(this.d, 3);
 		buf.writeUInt8(this.e, 4);
-		
+		*/
 	
         client.emitEvent('connected');
     },
