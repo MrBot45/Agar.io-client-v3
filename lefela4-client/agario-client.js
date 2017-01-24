@@ -981,46 +981,19 @@ console.log(strBuf);
                 this.log('[warning] spawn() was called when connection was not established, packet will be dropped');
             return false;
         }
-		var buffer_compressed = new Buffer([0,201,190,22,79,100,213,209,79,76,199,22,173,2,122,115,52,56,181,51,120], "hex");
-
-         //   let buf = new Buffer(2 + 1 * name.length);
+            let buf = new Buffer(2 + 1 * name.length);
             
-			/*buf.writeUInt8(0, 0);
+			buf.writeUInt8(0, 0);
 			
             for (let i = 0; i < name.length; i++) {
                 buf.writeUInt8(name.charCodeAt(i), 1 + i * 1);
             }
 			
 			buf.writeUInt8(0, 0);
-           // buf.writeUInt8(0, 0);*/
+            buf.writeUInt8(0, 0);
 			
-            this.send(buffer_compressed);
-           // console.log("Test");
-
-        //fix for unstable spawn on official servers
-      /*  if(!this.spawn_attempt && this.spawn_interval) {
-          //  if(this.debug >= 4)
-                console.log('Starting spawn() interval');
-
-            var that = this;
-            this.spawn_attempt = 1;
-            this.spawn_interval_id = setInterval(function() {
-                if(that.debug >= 4)
-                    console.log('spawn() interval tick, attempt ' + that.spawn_attempt + '/' + that.spawn_attempts);
-
-                if(that.spawn_attempt >= that.spawn_attempts) {
-                    //if(that.debug >= 1)
-                        console.log('[warning] spawn() interval gave up! Disconnecting from server!');
-                    that.spawn_attempt = 0;
-                    clearInterval(that.spawn_interval_id);
-                    that.spawn_interval_id = 0;
-                  //  that.disconnect();
-                    return;
-                }
-                that.spawn_attempt++;
-                that.spawn(name);
-            }, that.spawn_interval);
-        }*/
+            this.send(buf);
+            console.log("Spawing done");
 
         return true;
     },
