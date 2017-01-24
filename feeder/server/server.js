@@ -32,7 +32,7 @@ io.on('connection', function(socket) {
 
   socket.on('pos', function(data) {
 
-    io.sockets.in(socket.room).emit('pos', da
+    io.sockets.in(socket.room).emit('pos', data);
 	
   });
   
