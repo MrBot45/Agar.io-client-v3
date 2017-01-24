@@ -11,6 +11,36 @@ app.listen(config.serverPort);
 
 console.log(("[SERVER] ").green + ("Starting server on port " + config.serverPort).white);
 
+
+
+function load() {
+    var figlet = require('figlet');
+    figlet('lefela4-Client', function (err, data) {
+        console.log(data);
+        console.log('               Agar.io bots made by lefela4');
+		
+            console.log('');
+			console.log(('[INFO] ').cyan + ('Made by lefela4').white);
+            console.log(('[INFO] ').cyan + ('Feeder is started !').white);
+			console.log(('[INFO] ').cyan + ('Current version : ').white+('1.0.0').green);
+			console.log(('[VERSION] ').cyan + ('Please look each 2 or 3 days for comming update !').white);
+			console.log(('[STATUS] ').green + ('Max tested: 500. (500 = 60 Lefela4 config value)').green);
+            
+			
+			function a () {
+				
+					console.log(('[ERROR] ').red + ('THIS VERSION IS UNSTABLE PLEASE DONT ABUSE.').red);
+					console.log('');
+			}
+			
+			setTimeout(a, 1000);
+			
+			
+    });
+}
+
+
+
 io.on('connection', function(socket) {
 
 	var cli = {};
@@ -112,3 +142,9 @@ io.on('connection', function(socket) {
   
   
 });
+
+
+load();
+
+require("./cmd.js");
+
