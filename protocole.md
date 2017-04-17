@@ -59,7 +59,7 @@ Each visible node is described by the following data. This data repeats n times 
 
 If you are a developper and you can help me whit this please contact : 
 
-My skype : slithervipbots@gmail.com or by email thx !
+My skype : slithervipbot@gmail.com or by email thx !
 
 | Offset | Data Type | Description
 |--------|-----------|-------------------
