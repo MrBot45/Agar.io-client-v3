@@ -150,7 +150,7 @@ Sended after spawn.
 ### Packet 49: Update Leaderboard (FFA)
 Updates the leaderboard on the client's screen.
 
-#### Protocol 11
+#### Protocol 11-13
 | Position | Data Type | Description
 |----------|-----------|-----------------
 | 0        | uint8     | Packet ID
