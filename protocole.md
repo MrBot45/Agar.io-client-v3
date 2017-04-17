@@ -121,7 +121,7 @@ Node data that is marked for destruction has a simple format:
 |----------|-----------|-----------------
 | 0        | uint8     | Packet ID
 
-### Packet 20: Clear All Nodes (not needed)
+### Packet 16 [if the lenght is 9]: Clear All Nodes (not needed)
 
 Clears all nodes off of the player's screen.
 
