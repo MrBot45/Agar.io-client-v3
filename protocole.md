@@ -77,7 +77,7 @@ My skype : slithervipbot@gmail.com or by email thx !
 | ?      | string    | Node name (flags determined)
 | ?      | uint8     | End of string Bytes: 00
 
-#### Flags for Protocol v11
+#### Flags for Protocol v11-13
 
 | Bit | Behavior
 |-----|------------------
